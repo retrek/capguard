@@ -1,0 +1,15 @@
+version: 1
+settings:
+  audit_log: .agent-sudo/audit.jsonl
+  default_timeout_seconds: 60
+  require_absolute_commands: true
+  deny_shell_by_default: true
+capabilities:
+  restart-postgres-dev:
+    description: Restart the local PostgreSQL development service.
+    command:
+      - /bin/systemctl
+      - restart
+      - postgresql
+    requires_confirmation: true
+    timeout_seconds: 30
